@@ -16,7 +16,7 @@ addBtn.addEventListener(`click`, function (e) {
     if (noteArea.value == "" && title.value == "") { alert("Please Enter Title and Some Notes"); }
     else if (noteArea.value == "") { alert("Please Enter Some Notes"); }
     else if (title.value == "") { alert("Please Enter Title"); }
-    else { notesObj.push(noteArray); }
+    else { notesObj.push(noteArray); show("success"); }
     localStorage.setItem("myNotes", JSON.stringify(notesObj));
     console.log(localStorage);
     noteArea.value = "";
@@ -24,6 +24,30 @@ addBtn.addEventListener(`click`, function (e) {
     console.log(notesObj);
     showNotes();
 });
+
+function show(type) {
+    // let displayObj = new Display();
+    let alert = document.getElementById(`alert`);
+    if (type == "delete") {
+        alert.style.background = "lightgreen";
+         alert.innerHTML = `<div><strong> Success </strong> ,
+        You have successfully deleted a new Note </div>`;
+        setTimeout(() => {
+            alert.innerHTML = "";
+            // displayObj.clear();
+        }, 4000);
+    }
+    else if (type == "success") {
+        alert.style.background = "lightblue";
+        alert.innerHTML = `<div><strong> Success </strong> ,
+        You have successfully added a new Note </div>`;
+        setTimeout(() => {
+            alert.innerHTML = "";
+            // displayObj.clear();
+        }, 4000);
+    }
+}
+
 
 // function to show elements from local storage
 function showNotes() {
@@ -67,6 +91,7 @@ function deleteNote(index) {
     }
     notesObj.splice(index, 1);
     localStorage.setItem("myNotes", JSON.stringify(notesObj));
+    show("delete");
     showNotes();
 }
 
