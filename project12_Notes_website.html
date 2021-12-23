@@ -94,6 +94,8 @@
             </div>
         </nav>
     </header>
+    <div id="alert">
+    </div>
     <section class="takeNotes">
         <hr>
         <h1>Welcome to Magic Notes</h1>
