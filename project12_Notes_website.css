@@ -6,6 +6,9 @@
 .header{
     background-color: rgb(168, 154, 154);
 }
+#alert{
+    padding: 0rem 2.8rem;
+    }
 #navbar{
     display: flex;
     justify-content: space-between;
